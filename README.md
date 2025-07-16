@@ -69,3 +69,29 @@ Tests include:
 - Graceful exception handling and cleanup in `finally` blocks
 
 ---
+
+## 🧾 Logging Module
+
+The `edu.upenn.cit594.logging` package implements a centralized, reusable logging mechanism for the application using the **Singleton design pattern**.
+
+### 🔧 Core Class
+
+#### `Logger`
+- Implements `AutoCloseable` for safe resource management.
+- Designed as a **Singleton** — only one instance of `Logger` exists at runtime.
+- Handles both file creation and appending:
+  - If the file does **not** exist, it creates a new file.
+  - If the file **exists**, it opens in append mode to retain previous logs.
+- Provides a `log(String msg)` method to write messages and flush immediately.
+
+### 🔄 Design Pattern Used
+- **Singleton**: Ensures consistent, global logging behavior across the application.
+- **AutoCloseable**: Supports proper closure via try-with-resources.
+
+### 🛠 Example Usage
+```java
+Logger logger = Logger.getInstance();
+logger.setOutput("log.txt");
+logger.log("Query ZIP: 19104");
+logger.close();
+
