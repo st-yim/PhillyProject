@@ -95,3 +95,54 @@ logger.setOutput("log.txt");
 logger.log("Query ZIP: 19104");
 logger.close();
 
+```
+--- 
+
+## ⚙️ Processor Module
+
+The `edu.upenn.cit594.processor` package serves as the **core logic engine** of the application. It orchestrates data from multiple sources (CSV, TXT, JSON) and applies pattern-matching, coordinate mapping, and state-level aggregation to produce structured insights.
+
+### 🔧 Core Class: `TweetProcessor`
+
+#### ✅ Responsibilities
+- Ingest and store input data from various file readers.
+- Identify flu-related tweets using regex-based pattern matching.
+- Calculate the **nearest U.S. state** for each tweet based on geolocation.
+- Count and aggregate flu tweets by state.
+
+---
+
+### 📊 Key Functionalities
+
+| Method                  | Description                                                                 |
+|-------------------------|-----------------------------------------------------------------------------|
+| `getStateMap()`         | Maps U.S. state names to geographic coordinates from a CSV file.            |
+| `getRelevantTweet()`    | Filters tweets containing `"flu"` or `"#flu"` using extensive regex logic. |
+| `getLocationOfTweet()`  | Calculates the closest state to each tweet using Euclidean distance.        |
+| `getFluState()`         | Builds a frequency map of states with flu-related tweet counts.             |
+
+---
+
+### 🧪 Unit Testing
+
+The `TweetProcessorTest` suite verifies:
+- State-coordinate mapping from CSV
+- Regex-based flu tweet filtering
+- Geolocation-based tweet origin assignment
+- Final aggregation and logger output
+
+---
+
+### 🔄 Design Insights
+
+- **Overloaded Constructors:** Supports multiple file input types (CSV, TXT, JSON).
+- **Distance Calculation:** Uses basic Euclidean geometry between tweet and state coordinates.
+- **Regex Filtering:** Covers various formats of flu-related terms (e.g., `#flu.`, `flu!`, `flu `).
+- **Logging Integration:** Each tweet’s assigned state is logged via the `Logger` Singleton.
+
+---
+
+
+
+
+
