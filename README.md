@@ -142,6 +142,56 @@ The `TweetProcessorTest` suite verifies:
 
 ---
 
+## 🧪 Student Tests
+
+The `edu.upenn.cit594.studenttests` package includes **integration-level JUnit tests** to validate the full execution flow of the application — from file input to final console output and logging.
+
+### 📋 Overview
+
+These tests simulate real execution of the `Main` class by:
+- Creating test data (both trivial and real-world)
+- Invoking the application using different file combinations
+- Capturing and parsing the output stream
+- Validating output format and values
+- Checking the contents of the generated log file
+
+---
+
+### 🛠️ Core Class: `BasicTests`
+
+#### 🔑 Key Methods
+
+| Method | Purpose |
+|--------|---------|
+| `runMain()` | Programmatically runs `Main.main()` and captures its printed output. |
+| `extractResults()` | Parses output lines into a `Map<String, Integer>` of state → tweet count. |
+| `extractLog()` | Reads and parses log file contents into a list of `[state, tweet]` arrays. |
+| `makeTrivialTest()` | Generates dummy input files for quick sanity tests. |
+| `print2DStrings()` | Utility to format log lines for visibility in test output. |
+
+---
+
+### 📌 Notable Tests
+
+- **`testStuff()`**  
+  Runs a single trivial scenario with one tweet and one state. Verifies correct mapping and logging.
+
+- **`testThreeThings()`**  
+  A comprehensive test that runs:
+  - Actual data files (`flu_tweets.json`, `flu_tweets.txt`)
+  - A synthetic file (`trivial_tweets.json`)
+  - Verifies result accuracy and log output for each
+
+---
+
+### 🧪 Design Highlights
+
+- Uses `ByteArrayOutputStream` to capture `System.out` output.
+- Includes regex-based parsing to ensure strict output format validation.
+- Enables full-stack testing across input parsing, processing, and logging.
+
+---
+
 
 
 
