@@ -192,6 +192,27 @@ These tests simulate real execution of the `Main` class by:
 
 ---
 
+## 🖥️ Command-Line User Interface (UI)
+
+The `edu.upenn.cit594.ui` package contains the `CommandLineUserInterface` class — the entry point for triggering the program's core tweet analysis and output functionality.
+
+### 📋 Overview
+
+The UI handles:
+- Program startup and control flow
+- Integrating data from different readers (CSV, JSON, TXT)
+- Displaying results in a readable format (state → flu tweet count)
+
+---
+
+### 🔧 Key Class: `CommandLineUserInterface`
+
+#### 🔑 Constructor
+
+```java
+public CommandLineUserInterface(TweetProcessor processor1, TweetProcessor processor2, String logFile)
+```
+
 
 
 
