@@ -213,6 +213,52 @@ The UI handles:
 public CommandLineUserInterface(TweetProcessor processor1, TweetProcessor processor2, String logFile)
 ```
 
+---
+
+## 🧰 Utility Module
+
+The `edu.upenn.cit594.util` package provides foundational data structures used across the application. It contains the core domain model used to represent and pass tweet data between different layers of the application.
+
+### 🔧 Core Class: `Tweet`
+
+Represents a single tweet entry with location, timestamp, text, and identifier information. This class is **immutable** and serves as the main data model throughout the system.
+
+#### ✅ Fields
+
+| Field        | Type     | Description                                      |
+|--------------|----------|--------------------------------------------------|
+| `location`   | `String` | Geographical source or context of the tweet      |
+| `identifier` | `int`    | Unique (or placeholder) identifier for the tweet |
+| `date`       | `String` | Timestamp or date string of the tweet            |
+| `text`       | `String` | Content of the tweet                             |
+
+#### 🧱 Constructor
+
+```java
+public Tweet(String location, int identifier, String date, String text)
+```
+
+### 📦 Methods
+
+| Method            | Description                                   |
+|-------------------|-----------------------------------------------|
+| `getLocation()`   | Returns the tweet's location                  |
+| `getIdentifier()` | Returns the tweet's numeric ID                |
+| `getDate()`       | Returns the date or timestamp of the tweet    |
+| `getText()`       | Returns the tweet's full text content         |
+| `toString()`      | Stringified representation for debugging      |
+
+---
+
+### 🎯 Design Considerations
+
+- **Immutability:** All fields are declared `final` to ensure thread safety and data consistency.
+- **Reusability:** The `Tweet` class is shared across multiple modules including data readers, processors, and loggers.
+- **Readability:** A clean `toString()` method enhances unit test debugging and improves console output clarity.
+
+---
+
+
 
 
 
