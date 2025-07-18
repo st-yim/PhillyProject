@@ -322,6 +322,23 @@ java Main flu_tweets.json states.csv log.txt
 | **Separation of Concerns** | Delegates parsing, processing, and logging to dedicated modules              |
 
 
+---
+
+## ✅ Final Notes
+
+This project was designed to demonstrate:
+
+- **Modular Java development**
+- **Robust multi-format data ingestion** (`.json`, `.txt`, `.csv`)
+- **Geolocation-based analysis of textual data**
+
+It showcases key software engineering principles such as:
+
+- **Separation of concerns**
+- **Immutability and clean design**
+- **Reusable architecture**
+
+Through the integration of pattern-based filtering and state mapping, this project simulates real-world tweet analysis using structured design patterns and a layered processing model.
 
 
 
