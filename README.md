@@ -258,6 +258,69 @@ public Tweet(String location, int identifier, String date, String text)
 
 ---
 
+## 🧮 Main Program Entrypoint
+
+The `edu.upenn.cit594.Main` class serves as the **central entry point** of the application. It orchestrates the program flow, validates inputs, and initiates the processing and logging pipeline.
+
+---
+
+### 📦 Class: `Main`
+
+This class manages:
+
+- File validation (e.g., input types: `.csv`, `.json`, `.txt`)
+- Initialization of the appropriate `TweetReader` subtype (`JsonReader`, `TxtReader`)
+- Initialization of the logging system (`Logger`)
+- Launching the CLI interface (`CommandLineUserInterface`)
+
+---
+
+### 🚦 Input Requirements
+
+The program expects **exactly 3 command-line arguments**:
+
+1. **Tweet file** — `.json` or `.txt`
+2. **State coordinate file** — `.csv`
+3. **Log file** — output file to write the processed log
+
+If the number of arguments is incorrect, the program prints an appropriate error and exits.
+
+---
+
+### 🔧 Runtime Flow
+
+- Parses file extensions and validates supported formats.
+- Initializes `TweetProcessor` instances based on detected input types.
+- Sets up `Logger` with append support:
+
+  ```java
+  Logger logger = Logger.getInstance();
+  logger.setOutput(logFile);
+  ```
+
+---
+
+### ✅ Example Usage
+
+```java
+java Main flu_tweets.json states.csv log.txt
+```
+
+### 💥 Exception Handling
+
+- Catches and prints all `IOException` issues from file operations.
+- Gracefully fails with informative messages if unsupported file types are provided.
+
+---
+
+### 💡 Design Highlights
+
+| Principle               | Implementation                                                                 |
+|-------------------------|----------------------------------------------------------------------------------|
+| **Factory Pattern**     | Chooses the appropriate reader class based on file extension                    |
+| **Fail Fast**           | Validates all file types up front and exits with a descriptive error if invalid |
+| **Separation of Concerns** | Delegates parsing, processing, and logging to dedicated modules              |
+
 
 
 
