@@ -48,7 +48,18 @@ This project uses multiple structured input data files in **CSV** and **JSON** f
   - CSV includes a header row and supports flexible column order.
   - Records are ignored if `zip_code` is not 5 digits or `timestamp` format is invalid.
   - Empty fields are treated as 0 (except for `zip_code`/`timestamp`).
- 
+
+ ### 2. Property Values
+- **Format:** `.csv`
+- **Typical Fields:**
+  - `zip_code` – ZIP Code (may be extended, e.g. `19104-3333` → truncated to `19104`)
+  - `market_value` – numeric property value in dollars
+  - `total_livable_area` – numeric area in square feet
+- **Format Notes:**
+  - Used for computing averages and market value statistics.
+  - Records with malformed `market_value` or `total_livable_area` are ignored for relevant computations.
+  - Only the first 5 characters of the ZIP code are used.
+
 ---
 
 ## 📁 Data Management Module
