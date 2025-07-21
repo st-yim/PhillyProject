@@ -49,7 +49,7 @@ This project uses multiple structured input data files in **CSV** and **JSON** f
   - Records are ignored if `zip_code` is not 5 digits or `timestamp` format is invalid.
   - Empty fields are treated as 0 (except for `zip_code`/`timestamp`).
 
- ### 2. Property Values
+### 2. Property Values
 - **Format:** `.csv`
 - **Typical Fields:**
   - `zip_code` – ZIP Code (may be extended, e.g. `19104-3333` → truncated to `19104`)
@@ -59,6 +59,16 @@ This project uses multiple structured input data files in **CSV** and **JSON** f
   - Used for computing averages and market value statistics.
   - Records with malformed `market_value` or `total_livable_area` are ignored for relevant computations.
   - Only the first 5 characters of the ZIP code are used.
+
+### 3. Population Data
+- **Format:** `.csv`
+- **Typical Fields:**
+  - `zip_code` – 5-digit ZIP code
+  - `population` – total population (integer)
+- **Format Notes:**
+  - Only exact 5-digit ZIPs are processed.
+  - Records with invalid or missing population values are skipped.
+  - Used to compute per capita metrics like vaccinations per capita and market value per capita.
 
 ---
 
