@@ -70,6 +70,8 @@ This project uses multiple structured input data files in **CSV** and **JSON** f
   - Records with invalid or missing population values are skipped.
   - Used to compute per capita metrics like vaccinations per capita and market value per capita.
 
+These input files must be specified via command-line arguments when running the program. Their structure supports dynamic parsing, so column order may vary and should be handled at runtime.
+
 ---
 
 ## 📁 Data Management Module
