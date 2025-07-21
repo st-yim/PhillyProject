@@ -30,6 +30,27 @@ PhillyProject is a Java-based application built as part of the **CIT 5940** cour
 
 ---
 
+## 📁 Input Test Files
+
+This project uses multiple structured input data files in **CSV** and **JSON** formats. Each file type corresponds to a specific dataset used in the analysis.
+
+### 1. COVID-19 Data
+- **Formats:** `.csv`, `.json`
+- **Typical Fields:**
+  - `zip_code` – 5-digit ZIP code of reporting location
+  - `timestamp` – `YYYY-MM-DD hh:mm:ss`
+  - `partially_vaccinated` – individuals with only one vaccine dose
+  - `fully_vaccinated` – individuals with two vaccine doses
+  - `total_tests` – total COVID tests conducted (positive and negative)
+  - `booster_doses`, `hospitalizations`, `deaths` – cumulative values
+- **Format Notes:**
+  - JSON version uses an array of objects (similar to the flu tweets format from the Solo Project).
+  - CSV includes a header row and supports flexible column order.
+  - Records are ignored if `zip_code` is not 5 digits or `timestamp` format is invalid.
+  - Empty fields are treated as 0 (except for `zip_code`/`timestamp`).
+ 
+---
+
 ## 📁 Data Management Module
 
 The `edu.upenn.cit594.datamanagement` package handles **file parsing and tweet ingestion** across multiple formats, supporting `.json`, `.csv`, and `.txt`.
